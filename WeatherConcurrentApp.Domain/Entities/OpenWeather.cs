@@ -23,7 +23,7 @@ namespace WeatherConcurrentApp.Domain.Entities
 
     public class Wind
     {
-        public double Speed { get; set; }
+        public double Speed { get; set; } //xd
         public int Deg { get; set; }
         public double Gust { get; set; }
     }
