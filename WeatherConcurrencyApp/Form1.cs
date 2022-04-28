@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using WeatherConcurrencyApp.AppCore.Interfaces;
+using WeatherConcurrencyApp.AppCore.Services;
 using WeatherConcurrencyApp.Infrastructure.OpenWeatherClient;
 using WeatherConcurrentApp.Domain.Entities;
 using WeatherConcurrentApp.Domain.Enum;
@@ -23,6 +24,9 @@ namespace WeatherConcurrencyApp
         public OpenWeather openWeather;
         public IWeatherServices weatherServices;
         List<OpenWeatherCities> cities;
+        
+
+
         public FrmMain(IHttpOpenWeatherClientService httpOpenWeatherClient, IWeatherServices weatherServices)
         {
             InitializeComponent();
@@ -34,13 +38,13 @@ namespace WeatherConcurrencyApp
             //{
             //    MessageBox.Show("Test");
             //}
-            comboBox1.DataSource = cities.Select(x => x.Name).ToList();
+            cbCity.DataSource = cities.Select(x => x.Name).ToList();
 
-            comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cbCity.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbCity.AutoCompleteSource = AutoCompleteSource.CustomSource;
             AutoCompleteStringCollection combData = new AutoCompleteStringCollection();
             getData(combData);
-            comboBox1.AutoCompleteCustomSource = combData;
+            cbCity.AutoCompleteCustomSource = combData;
             comboBox2.Items.AddRange(Enum.GetValues(typeof(Class1)).Cast<object>().ToArray());
         }
 
@@ -68,12 +72,12 @@ namespace WeatherConcurrencyApp
         public async Task Request()
         {
             //openWeather = await httpOpenWeatherClient.GetWeatherByCityNameAsync(textBox1.Text);
-            openWeather = await httpOpenWeatherClient.GetWeatherByCityNameAsync(comboBox1.SelectedValue.ToString());
+            openWeather = await httpOpenWeatherClient.GetWeatherByCityNameAsync(cbCity.SelectedValue.ToString());
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
         private void getData(AutoCompleteStringCollection dataCollection)
         {
@@ -89,7 +93,7 @@ namespace WeatherConcurrencyApp
             {
                 limpiarfly();
                
-                Expression<Func<OpenWeather, bool>> expression = u => u.Name.Contains(comboBox1.SelectedValue.ToString());
+                Expression<Func<OpenWeather, bool>> expression = u => u.Name.Contains(cbCity.SelectedValue.ToString());
                 var seleccion = weatherServices.findWByCity(expression);
                 foreach(OpenWeather weather in seleccion)
                 {
@@ -131,6 +135,9 @@ namespace WeatherConcurrencyApp
 
         private async void button1_Click(object sender, EventArgs e)
         {
+
+
+            
             openWeather = await httpOpenWeatherClient.GetWeatherByCityNameAsync("Managua");
             weatherServices.Add(openWeather);
             MessageBox.Show(weatherServices.Read()[0].Weather[0].Description);
