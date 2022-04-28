@@ -77,7 +77,13 @@ namespace WeatherConcurrencyApp
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
+           
             
+
+
+
         }
         private void getData(AutoCompleteStringCollection dataCollection)
         {
@@ -138,9 +144,10 @@ namespace WeatherConcurrencyApp
 
 
             
-            openWeather = await httpOpenWeatherClient.GetWeatherByCityNameAsync("Managua");
+            openWeather = await httpOpenWeatherClient.GetWeatherByCityNameAsync(cbCity.Text);
             weatherServices.Add(openWeather);
-            MessageBox.Show(weatherServices.Read()[0].Weather[0].Description);
+            MessageBox.Show("City: " +cbCity.Text + "\r\n"+ "Details: "+
+                weatherServices.Read()[0].Weather[0].Description,"Info",MessageBoxButtons.OK);
         }
     }
 }

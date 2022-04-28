@@ -64,28 +64,35 @@ namespace WeatherConcurrencyApp
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(576, 38);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(204)))), ((int)(((byte)(7)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(540, 10);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(42, 23);
+            this.button1.Size = new System.Drawing.Size(93, 52);
             this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_filtrar
             // 
+            this.btn_filtrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(146)))), ((int)(((byte)(87)))));
+            this.btn_filtrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_filtrar.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_filtrar.Location = new System.Drawing.Point(459, 10);
             this.btn_filtrar.Name = "btn_filtrar";
             this.btn_filtrar.Size = new System.Drawing.Size(75, 23);
             this.btn_filtrar.TabIndex = 4;
             this.btn_filtrar.Text = "filtrar";
-            this.btn_filtrar.UseVisualStyleBackColor = true;
+            this.btn_filtrar.UseVisualStyleBackColor = false;
             this.btn_filtrar.Click += new System.EventHandler(this.btn_filtrar_Click);
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(27, 10);
+            this.comboBox2.Location = new System.Drawing.Point(12, 10);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(426, 21);
             this.comboBox2.TabIndex = 3;
@@ -94,7 +101,7 @@ namespace WeatherConcurrencyApp
             // cbCity
             // 
             this.cbCity.FormattingEnabled = true;
-            this.cbCity.Location = new System.Drawing.Point(27, 37);
+            this.cbCity.Location = new System.Drawing.Point(12, 37);
             this.cbCity.Name = "cbCity";
             this.cbCity.Size = new System.Drawing.Size(426, 21);
             this.cbCity.TabIndex = 2;
@@ -102,12 +109,16 @@ namespace WeatherConcurrencyApp
             // 
             // btnOk
             // 
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(82)))), ((int)(((byte)(7)))));
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.SystemColors.Control;
             this.btnOk.Location = new System.Drawing.Point(459, 37);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 25);
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "agregar";
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // FrmMain
